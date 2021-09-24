@@ -29,7 +29,6 @@ object UI {
 
         playOnce()
        case "2" =>
-         //GameRunner.computerVsComputer()
          GameRunner.computerVsComputer() match {
            case Left(_) => println(" Error in game")
            case Right(game) => Util.printResult( game )
@@ -58,7 +57,7 @@ object UI {
     val chooseHand: Int = readInt()
    val chooseHandH: Either[String, Hand] = Hand.fromUserInput(chooseHand)
    chooseHandH match {
-      case Left(value) => getHandPlayer()
+      case Left(_) => getHandPlayer()
       case Right(value) => value
     }
   }

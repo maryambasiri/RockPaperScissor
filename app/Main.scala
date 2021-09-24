@@ -1,3 +1,3 @@
-
-
-1
+object Main extends App{
+  UI.play()
+}
