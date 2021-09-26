@@ -14,6 +14,7 @@ object ZioUI {
       _ <- putStrLn("\nWelcome to RockPaperScissorsLizardSpoke Game!")
       _ <- playOnce()
     } yield ()
+
   val i: UIO[Int] = ZIO.effectTotal(42)
 
   private def playOnce(): ZIO[Console, Serializable, Unit] = {
@@ -27,14 +28,14 @@ object ZioUI {
     for {
       userInput <- printMenu *> getStrLn
       r <-
-        if(userInput == "1")
+        if (userInput == "1")
           ZIO.fromEither(GameRunner.playerVsComputer(getHandPlayer())).flatMap(result => putStr(result.prettyPrint)) *> playOnce()
-        else if(userInput == "2")
+        else if (userInput == "2")
           ZIO.fromEither(GameRunner.computerVsComputer()).flatMap(result => putStr(result.prettyPrint)) *> playOnce()
-        else if(userInput == "3")
+        else if (userInput == "3")
           ZIO.unit
         else
-         playOnce()
+          playOnce()
     } yield r
   }
 }
