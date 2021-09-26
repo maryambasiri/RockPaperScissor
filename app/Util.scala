@@ -1,7 +1,7 @@
 import models.Game
 
 object Util {
-  def printResult(result : Game) ={
+  def printResult(result: Game) = {
 
     if (result.hand1 == result.hand2)
       println(
